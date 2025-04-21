@@ -26,6 +26,8 @@ My research interests inlcude Computer Vision, especially Multimodal Large Langu
 - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
 
+# 📝 Publications
+
 <!-- # 📝 Publications 
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
@@ -42,7 +44,10 @@ My research interests inlcude Computer Vision, especially Multimodal Large Langu
 
 - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020** -->
 
-# 🎖 Honors and Awards
+# 🧑‍💻 Projects
+
+
+# 🏆 Honors and Awards
 
 - *2024* 17th China College Student Computer Design Competition, Open-source Platform for Intelligent Interpretation of Remote Sensing Image, 2nd Prize. 
 - *2023* 12th "China Software Cup" College Student Software Design Competition, Intelligent Resume Parsing System Track, 1st Prize.
