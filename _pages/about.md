@@ -50,13 +50,11 @@ My research interests inlcude Computer Vision, especially Multimodal Large Langu
 
 Geoview: PaddlePaddle-based Intelligent Interpretation Tool for Remote Sensing Image
 
-**Lidong Lu**, Lingming Cao, Bokun Yi, Manhui Lin, et.al. \*in no particular order
+**Lidong Lu**, Lingming Cao, Bokun Yi, Manhui Lin. \*in no particular order
 
 [**Code**](https://github.com/PaddleCV-SIG/GeoView) [**Press**](https://mp.weixin.qq.com/s/yW4Qx93n14n8dqnWMRDGBQ) 
 
-- GeoView is an open-source, lightweight, and feature-rich tool for intelligent interpretation of remote sensing image based on PaddleRS. It is designed to enable rapid deployment of deep learning models in the field of remote sensing on web platforms. 
-- GeoView provides pre-trained models for a variety of tasks, including change detection, scene classification, object detection, image restoration, and land cover classification. 
-- Since its open-source release, it has received 152 stars on GitHub.
+- GeoView is an open-source remote sensing image intelligent interpretation tool based on PaddleRS. It is designed to enable rapid deployment of deep learning models in the field of remote sensing on web platforms. GeoView provides pre-trained models for a variety of tasks, including change detection, scene classification, object detection, image restoration, and land cover classification. Since its open-source release, it has received 152⭐️ on GitHub.
 
 </div>
 </div>
