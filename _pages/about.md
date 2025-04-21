@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I‘m pursuing a Master degree in Computer Technology at [Nanjing University](https://www.nju.edu.cn), advised by Prof. [Tong Lu](https://cs.nju.edu.cn/lutong/index.htm). 
+I'm pursuing a Master degree in Computer Technology at [Nanjing University](https://www.nju.edu.cn), advised by Prof. [Tong Lu](https://cs.nju.edu.cn/lutong/index.htm). 
 
 My research interests inlcude Computer Vision, especially Multimodal Large Language Model. 
 
