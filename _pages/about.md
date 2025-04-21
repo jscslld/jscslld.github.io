@@ -59,6 +59,18 @@ Geoview: Intelligent Interpretation Tool for Remote Sensing Image
 </div>
 </div>
 
+<div class='paper-box'><div class='paper-box-image'><div><img src='images/projects/resume.png' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+LLM-based Intelligent Resume Parsing System
+
+**Lidong Lu**, Wuguang Ni, Haoru Li, Xiaoying Wang. \*in no particular order
+
+- The core parsing algorithm is based on the ChatGLM2-6B model, and it leverages P-Tuning V2 for efficient fine-tuning on a dataset of over a thousand resume parsing samples. This process allows the general model to better adapt to downstream tasks involving common parsing fields. For custom parsing fields, the algorithm uses in-context learning, injecting domain knowledge into the model's context through prompts to enhance the LLM's ability to parse unknown fields.
+
+</div>
+</div>
+
 # 🏆 Honors and Awards
 
 - *2024* 17th China College Student Computer Design Competition, Open-source Platform for Intelligent Interpretation of Remote Sensing Image, 2nd Prize. 
