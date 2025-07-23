@@ -28,6 +28,7 @@ import {
   BlogIcon,
 } from "@/components/icons";
 import React from "react";
+import { Divider } from "@heroui/react";
 
 const scrollToId = (id: string) => {
   const el = document.getElementById(id);
@@ -91,7 +92,7 @@ export const Navbar = () => {
         className="flex-shrink-0"
         justify="end"
       >
-        <NavbarItem className="flex gap-2">
+        <NavbarItem className="hidden md:flex gap-2">
           {/* <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
             <TwitterIcon className="text-default-500" />
           </Link>
@@ -103,7 +104,7 @@ export const Navbar = () => {
           </Link> */}
           <ThemeSwitch />
         </NavbarItem>
-        <NavbarItem className="md:flex">
+        <NavbarItem className="hidden lg:flex">
           <Button
             isExternal
             as={Link}
@@ -125,6 +126,18 @@ export const Navbar = () => {
             </Link>
           </NavbarItem>
         ))}
+        <NavbarItem className="mt-auto w-full mb-5">
+          <Button
+            isExternal
+            as={Link}
+            className="text-sm font-normal text-default-600 bg-default-100 w-full"
+            href="https://www.imlld.com"
+            startContent={<BlogIcon className="text-primary" />}
+            variant="flat"
+          >
+            Visit My Blog
+          </Button>
+        </NavbarItem>
       </NavbarMenu>
 
     </HeroUINavbar>
