@@ -57,7 +57,7 @@ export const Projects = () => {
                                 </Link> *in no particular order</h5>
                         </div>
                     </div>
-                    <div className="flex flex-col md:flex-row flex-shrink-0 space-y-2 md:space-y-0 md:space-x-2">
+                    <div className="flex flex-col md:flex-row flex-shrink-0 space-y-2 md:space-y-0 md:space-x-2 ml-2.5">
   <Button
     color="default"
     radius="full"

@@ -92,7 +92,7 @@ export const Navbar = () => {
         className="flex-shrink-0"
         justify="end"
       >
-        <NavbarItem className="hidden md:flex gap-2">
+        <NavbarItem className="flex gap-2">
           {/* <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
             <TwitterIcon className="text-default-500" />
           </Link>
