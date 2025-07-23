@@ -49,8 +49,9 @@ export const Navbar = () => {
   ];
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
-    <HeroUINavbar maxWidth="full" position="sticky" isBordered={true} onMenuOpenChange={setIsMenuOpen} className="w-full max-w-full overflow-x-auto">
-      <NavbarContent justify="start" className="gap-10">
+    <div className="border-b border-b-gray-200 dark:border-b-gray-700">
+    <HeroUINavbar maxWidth="full" position="sticky" onMenuOpenChange={setIsMenuOpen} className="mx-auto max-w-7xl overflow-x-auto">
+      <NavbarContent justify="start" className="gap-10 " >
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
@@ -141,5 +142,6 @@ export const Navbar = () => {
       </NavbarMenu>
 
     </HeroUINavbar>
+    </div>
   );
 };
