@@ -27,6 +27,7 @@ import {
   Logo,
   BlogIcon,
 } from "@/components/icons";
+import React from "react";
 
 const scrollToId = (id: string) => {
   const el = document.getElementById(id);
@@ -45,10 +46,14 @@ export const Navbar = () => {
     { href: "rewards", label: "Honors and Awards" },
     { href: "educations", label: "Educations" },
   ];
-
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
-    <HeroUINavbar maxWidth="xl" position="sticky" isBordered={true}>
+    <HeroUINavbar maxWidth="full" position="sticky" isBordered={true} onMenuOpenChange={setIsMenuOpen} className="w-full max-w-full overflow-x-auto">
       <NavbarContent justify="start" className="gap-10">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden"
+        />
         <NavbarBrand>
           <NavbarItem>
             <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -83,10 +88,10 @@ export const Navbar = () => {
         </NavbarContent>
       </NavbarContent>
       <NavbarContent
-        className="hidden sm:flex basis-1/5 sm:basis-full"
+        className="flex-shrink-0"
         justify="end"
       >
-        <NavbarItem className="hidden sm:flex gap-2">
+        <NavbarItem className="flex gap-2">
           {/* <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
             <TwitterIcon className="text-default-500" />
           </Link>
@@ -98,7 +103,7 @@ export const Navbar = () => {
           </Link> */}
           <ThemeSwitch />
         </NavbarItem>
-        <NavbarItem className="hidden md:flex">
+        <NavbarItem className="md:flex">
           <Button
             isExternal
             as={Link}
@@ -111,6 +116,16 @@ export const Navbar = () => {
           </Button>
         </NavbarItem>
       </NavbarContent>
+   
+      <NavbarMenu>
+        {navItems.map(({ href, label }) => (
+          <NavbarItem key={href}>
+            <Link className="w-full" color="foreground" href="#"  onClick={(e) => { e.preventDefault(); scrollToId(href); }}>
+              {label}
+            </Link>
+          </NavbarItem>
+        ))}
+      </NavbarMenu>
 
     </HeroUINavbar>
   );

@@ -18,6 +18,7 @@ export const Projects = () => {
                             radius="full"
                             size="md"
                             src="/assets/projects/geoview-logo.png"
+                            className="flex-shrink-0 w-9 h-9 hidden md:block"
                         />
                         <div className="flex flex-col gap-1 items-start justify-center">
                             <h4 className="text-small font-semibold leading-none text-default-600">Geoview: Intelligent Interpretation Tool for Remote Sensing Image</h4>
@@ -56,27 +57,28 @@ export const Projects = () => {
                                 </Link> *in no particular order</h5>
                         </div>
                     </div>
-                    <div><Button
-                        color="default"
-                        radius="full"
-                        as={Link}
-                        size="sm"
-                        className="mr-1"
-                        href="https://mp.weixin.qq.com/s/yW4Qx93n14n8dqnWMRDGBQ"
-                        isExternal
-                    >
-                        {"Report"}
-                    </Button>
-                        <Button
-                            color="primary"
-                            radius="full"
-                            size="sm"
-                            as={Link}
-                            href="https://github.com/PaddleCV-SIG/GeoView"
-                            isExternal
-                        >
-                            {"Code"}
-                        </Button></div>
+                    <div className="flex flex-col md:flex-row flex-shrink-0 space-y-2 md:space-y-0 md:space-x-2">
+  <Button
+    color="default"
+    radius="full"
+    as={Link}
+    size="sm"
+    href="https://mp.weixin.qq.com/s/yW4Qx93n14n8dqnWMRDGBQ"
+    isExternal
+  >
+    Report
+  </Button>
+  <Button
+    color="primary"
+    radius="full"
+    size="sm"
+    as={Link}
+    href="https://github.com/PaddleCV-SIG/GeoView"
+    isExternal
+  >
+    Code
+  </Button>
+</div>
 
                 </CardHeader>
                 <CardBody className="px-3 py-0 text-small text-default-400 mb-3">
@@ -106,6 +108,7 @@ export const Projects = () => {
                             radius="full"
                             size="md"
                             src="/assets/projects/resume-logo.png"
+                            className="flex-shrink-0 w-9 h-9 hidden md:block"
                         />
                         <div className="flex flex-col gap-1 items-start justify-center">
                             <h4 className="text-small font-semibold leading-none text-default-600">LLM-based Intelligent Resume Parsing System</h4>

@@ -1,4 +1,4 @@
-import { SideBar } from "@/components/Sidebar";
+import { MobileSidebar, SideBar } from "@/components/Sidebar";
 import { AboutMe } from "@/components/Aboutme";
 import { Publications } from "@/components/Publications";
 import { Projects } from "@/components/Projects";
@@ -7,15 +7,20 @@ import { Educations } from "@/components/Educations";
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-5 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
       <div
-        className="sticky self-start"
+        className="hidden md:sticky md:self-start md:block"
         style={{ top: 'calc(4rem + 1.25rem)' }}
       >
         <SideBar />
       </div>
+      <div
+        className="block md:hidden"
+      >
+        <MobileSidebar />
+      </div>
 
-      <div className="col-span-4">
+      <div className="md:col-span-4">
         <AboutMe />
         <Publications />
         <Projects />
