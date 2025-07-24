@@ -10,7 +10,7 @@ export const Rewards = () => {
         <div className="mb-3">
             <h1 id="rewards" className="text-xl font-semibold">🏆 Honors and Awards</h1>
             <Divider className="my-2 bg-default-100" />
-            <ul className="list-disc list-inside space-y-3 text-default-700 text-sm/6">
+            <ul className="list-disc list-inside space-y-3 text-default-700 text-base/6">
                 {[
                     ['2024', '17th China College Student Computer Design Competition, Open-source Platform for Intelligent Interpretation of Remote Sensing Image, 2nd Prize.'],
                     ['2023', '12th “China Software Cup” College Student Software Design Competition, Intelligent Resume Parsing System Track, 1st Prize.'],

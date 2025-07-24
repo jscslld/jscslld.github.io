@@ -21,13 +21,13 @@ export const Projects = () => {
                             className="flex-shrink-0 w-9 h-9 hidden md:block"
                         />
                         <div className="flex flex-col gap-1 items-start justify-center">
-                            <h4 className="text-small font-semibold leading-none text-default-600">Geoview: Intelligent Interpretation Tool for Remote Sensing Image</h4>
-                            <h5 className="text-small tracking-tight text-default-400"><Link
+                            <h4 className="text-base font-semibold leading-none text-default-600">Geoview: Intelligent Interpretation Tool for Remote Sensing Image</h4>
+                            <h5 className="text-base tracking-tight text-default-400"><Link
                                 isExternal
                                 showAnchorIcon
                                 anchorIcon={<AnchorIcon width="1rem" height="1rem" />}
                                 href="https://github.com/jscslld"
-                                className="text-sm/6  font-semibold"
+                                className="text-base/6  font-semibold"
                             >
                                 Lidong Lu
                             </Link>, <Link
@@ -35,7 +35,7 @@ export const Projects = () => {
                                 showAnchorIcon
                                 anchorIcon={<AnchorIcon width="1rem" height="1rem" />}
                                 href="https://github.com/terayco"
-                                className="text-sm/6"
+                                className="text-base/6"
                             >
                                     Lingming Cao
                                 </Link>, <Link
@@ -43,7 +43,7 @@ export const Projects = () => {
                                     showAnchorIcon
                                     anchorIcon={<AnchorIcon width="1rem" height="1rem" />}
                                     href="https://github.com/yibaikuai"
-                                    className="text-sm/6"
+                                    className="text-base/6"
                                 >
                                     Bokun Yi
                                 </Link>, <Link
@@ -51,13 +51,13 @@ export const Projects = () => {
                                     showAnchorIcon
                                     anchorIcon={<AnchorIcon width="1rem" height="1rem" />}
                                     href="https://github.com/Bobholamovic"
-                                    className="text-sm/6"
+                                    className="text-base/6"
                                 >
                                     Manhui Lin
                                 </Link> *in no particular order</h5>
                         </div>
                     </div>
-                    <div className="flex flex-col md:flex-row flex-shrink-0 space-y-2 md:space-y-0 md:space-x-2 ml-2.5">
+                    {/* <div className="flex flex-col md:flex-row flex-shrink-0 space-y-2 md:space-y-0 md:space-x-2 ml-2.5">
   <Button
     color="default"
     radius="full"
@@ -78,7 +78,7 @@ export const Projects = () => {
   >
     Code
   </Button>
-</div>
+</div> */}
 
                 </CardHeader>
                 <CardBody className="px-3 py-0 text-small text-default-400 mb-3">
@@ -111,13 +111,13 @@ export const Projects = () => {
                             className="flex-shrink-0 w-9 h-9 hidden md:block"
                         />
                         <div className="flex flex-col gap-1 items-start justify-center">
-                            <h4 className="text-small font-semibold leading-none text-default-600">LLM-based Intelligent Resume Parsing System</h4>
-                            <h5 className="text-small tracking-tight text-default-400"><Link
+                            <h4 className="text-base font-semibold leading-none text-default-600">LLM-based Intelligent Resume Parsing System</h4>
+                            <h5 className="text-base tracking-tight text-default-400"><Link
                                 isExternal
                                 showAnchorIcon
                                 anchorIcon={<AnchorIcon width="1rem" height="1rem" />}
                                 href="https://github.com/jscslld"
-                                className="text-sm/6  font-semibold"
+                                className="text-base/6  font-semibold"
                             >
                                 Lidong Lu
                             </Link>, <Link
@@ -125,7 +125,7 @@ export const Projects = () => {
                                 showAnchorIcon
                                 anchorIcon={<AnchorIcon width="1rem" height="1rem" />}
                                 href="https://github.com/Ni-Mr"
-                                className="text-sm/6"
+                                className="text-base/6"
                             >
                                     Wuguang Ni
                                 </Link>, <Link
@@ -133,7 +133,7 @@ export const Projects = () => {
                                     showAnchorIcon
                                     anchorIcon={<AnchorIcon width="1rem" height="1rem" />}
                                     href="https://github.com/Max-Lii"
-                                    className="text-sm/6"
+                                    className="text-base/6"
                                 >
                                     Haoru Li
                                 </Link>, <span>
