@@ -1,9 +1,9 @@
 "use client"
 import React from "react";
 import { Card, CardHeader, CardBody, CardFooter, Avatar, Button, Link, Image, Spacer } from "@heroui/react";
-
+import Icon, {ALL_ICON_KEYS, IconType} from '@icon-park/react/es/all';
 import { Divider } from "@heroui/react";
-import { AnchorIcon } from "./icons";
+import { AnchorIcon, GithubIcon, WechatIcon } from "./icons";
 
 export const Projects = () => {
     return (
@@ -96,6 +96,25 @@ export const Projects = () => {
                                 GeoView is an open-source remote sensing image intelligent interpretation tool based on PaddleRS. It is designed to enable rapid deployment of deep learning models in the field of remote sensing on web platforms. GeoView provides pre-trained models for a variety of tasks, including change detection, scene classification, object detection, image restoration, and land cover classification. Since its open-source release, it has received 152⭐️ on GitHub.
                             </p>
                         </div>
+                    </div>
+                    <div className="flex mt-3">
+                        <Link
+                            isExternal
+                            href="https://mp.weixin.qq.com/s/yW4Qx93n14n8dqnWMRDGBQ"
+                            className="text-base/6 inline-flex items-center gap-1"
+                        >
+                            <Icon type="wechat" />
+                            Report
+                        </Link>
+                        <Spacer x={4} />
+                        <Link
+                            isExternal
+                            href="https://github.com/PaddleCV-SIG/GeoView"
+                            className="text-base/6 inline-flex items-center gap-1"
+                        >
+                            <Icon type="github" />
+                            Code
+                        </Link>
                     </div>
                 </CardBody>
             </Card>
