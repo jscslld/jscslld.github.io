@@ -64,7 +64,6 @@ jobs:
           name: site
           path: .
 
-      # 🧑‍💻 Step 1: Deploy to remote server
       - name: Upload to remote server
         uses: appleboy/scp-action@v1
         with:
@@ -73,11 +72,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           source: "site.tar.gz"
-          target: "/www/wwwroot/lulidong.com"
-          tar_disable: true 
+          target: "/tmp"
+          tar_disable: true
           strip_components: 0
-
-      - name: SSH to extract files
+          
+      - name: SSH to deploy
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -85,10 +84,9 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            cd /www/wwwroot/lulidong.com
-            rm -rf ./*
-            tar -xzf site.tar.gz
-            rm site.tar.gz
+            rm -rf /www/wwwroot/lulidong.com/*
+            tar -xzf /tmp/site.tar.gz -C /www/wwwroot/lulidong.com
+            rm /tmp/site.tar.gz
 
       # 🌐 Step 2: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
