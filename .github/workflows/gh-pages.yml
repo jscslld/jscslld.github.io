@@ -63,24 +63,30 @@ jobs:
         with:
           name: site
           path: .
-      - name: Debug SSH_PASSWORD
-        run: |
-          echo "Length of password: ${#SSH_PASSWORD}"
-          echo "Printable? $(echo "$SSH_PASSWORD" | od -An -tx1)"
-        env:
-          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
 
       # 🧑‍💻 Step 1: Deploy to remote server
-      - name: Upload & Extract on Server
-        run: |
-          sshpass -p "${{ secrets.SSH_PASSWORD }}" scp -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -P 22 site.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/www/wwwroot/lulidong.com
+      - name: Upload to remote server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          source: "site.tar.gz"
+          target: "/www/wwwroot/lulidong.com"
 
-          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 22 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+      - name: SSH to extract files
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
             cd /www/wwwroot/lulidong.com
             rm -rf ./*
             tar -xzf site.tar.gz
             rm site.tar.gz
-          EOF
 
       # 🌐 Step 2: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
