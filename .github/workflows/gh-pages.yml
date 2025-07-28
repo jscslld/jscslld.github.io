@@ -15,8 +15,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy_pages.outputs.page_url }}
 
     steps:
       - name: Checkout source code
@@ -36,13 +39,31 @@ jobs:
       - name: Archive build output
         run: tar -czf site.tar.gz -C ./out .
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload to remote server
+        uses: appleboy/scp-action@v1
         with:
-          name: site
-          path: site.tar.gz
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          source: "site.tar.gz"
+          target: "/tmp"
+          tar_disable: true
+          strip_components: 0
 
-      - name: Setup Pages
+      - name: SSH to deploy
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            rm -rf /www/wwwroot/lulidong.com/*
+            tar -xzf /tmp/site.tar.gz -C /www/wwwroot/lulidong.com
+            rm /tmp/site.tar.gz
+
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload GitHub Pages artifact
@@ -50,46 +71,6 @@ jobs:
         with:
           path: ./out
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy_pages.outputs.page_url }}
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site
-          path: .
-
-      - name: Upload to remote server using sshpass
-        env:
-          SSHPASS: ${{ secrets.SSH_PASSWORD }}
-        run: |
-          HOST=${{ secrets.SSH_HOST }}
-          USER=${{ secrets.SSH_USER }}
-          PASS=$(echo "$SSHPASS" | tr -d '\n')
-          export SSHPASS="$PASS"
-          sshpass -e scp -P 22 site.tar.gz "$USER@$HOST:/www/wwwroot/lulidong.com"
-
-      - name: SSH into server and extract files
-        env:
-          SSHPASS: ${{ secrets.SSH_PASSWORD }}
-        run: |
-          HOST=${{ secrets.SSH_HOST }}
-          USER=${{ secrets.SSH_USER }}
-          PASS=$(echo "$SSHPASS" | tr -d '\n')
-          export SSHPASS="$PASS"
-          sshpass -e ssh -o StrictHostKeyChecking=no -p 22 "$USER@$HOST" << 'EOF'
-            cd /www/wwwroot/lulidong.com
-            rm -rf ./*
-            tar -xzf site.tar.gz
-            rm site.tar.gz
-          EOF
-
-      # 🌐 Step 2: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deploy_pages
         uses: actions/deploy-pages@v4
