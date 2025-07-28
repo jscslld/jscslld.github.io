@@ -15,8 +15,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy_pages.outputs.page_url }}
 
     steps:
       - name: Checkout source code
@@ -36,34 +39,6 @@ jobs:
       - name: Archive build output
         run: tar -czf site.tar.gz -C ./out .
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: site
-          path: site.tar.gz
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy_pages.outputs.page_url }}
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site
-          path: .
-
       - name: Upload to remote server
         uses: appleboy/scp-action@v1
         with:
@@ -75,7 +50,7 @@ jobs:
           target: "/tmp"
           tar_disable: true
           strip_components: 0
-          
+
       - name: SSH to deploy
         uses: appleboy/ssh-action@v1
         with:
@@ -88,7 +63,14 @@ jobs:
             tar -xzf /tmp/site.tar.gz -C /www/wwwroot/lulidong.com
             rm /tmp/site.tar.gz
 
-      # 🌐 Step 2: Deploy to GitHub Pages
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
       - name: Deploy to GitHub Pages
         id: deploy_pages
         uses: actions/deploy-pages@v4
