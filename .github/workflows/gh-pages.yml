@@ -63,6 +63,12 @@ jobs:
         with:
           name: site
           path: .
+      - name: Debug SSH_PASSWORD
+        run: |
+          echo "Length of password: ${#SSH_PASSWORD}"
+          echo "Printable? $(echo "$SSH_PASSWORD" | od -An -tx1)"
+        env:
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
 
       # 🧑‍💻 Step 1: Deploy to remote server
       - name: Upload & Extract on Server
