@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import 'react-photo-view/dist/react-photo-view.css';
 import { Metadata, Viewport } from "next";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
