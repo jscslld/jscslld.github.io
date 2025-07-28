@@ -69,7 +69,7 @@ jobs:
         uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: ${{ trim(secrets.SSH_USER) }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
           source: "site.tar.gz"
@@ -79,7 +79,7 @@ jobs:
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: ${{ trim(secrets.SSH_USER) }}
+          username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
