@@ -64,35 +64,30 @@ jobs:
           name: site
           path: .
 
-      - name: Prepare SSH key without blank lines
-        id: prepare_ssh
+      - name: Upload to remote server using sshpass
+        env:
+          SSHPASS: ${{ secrets.SSH_PASSWORD }}
         run: |
-          echo "ssh_key_clean<<EOF" >> $GITHUB_ENV
-          echo "${{ secrets.SSH_KEY }}" | sed '/^\s*$/d' >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          HOST=${{ secrets.SSH_HOST }}
+          USER=${{ secrets.SSH_USER }}
+          PASS=$(echo "$SSHPASS" | tr -d '\n')
+          export SSHPASS="$PASS"
+          sshpass -e scp -P 22 site.tar.gz "$USER@$HOST:/www/wwwroot/lulidong.com"
 
-      - name: Upload to remote server
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ env.ssh_key_clean }}
-          port: 22
-          source: "site.tar.gz"
-          target: "/www/wwwroot/lulidong.com"
-
-      - name: SSH to extract files
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ env.ssh_key_clean }}
-          port: 22
-          script: |
+      - name: SSH into server and extract files
+        env:
+          SSHPASS: ${{ secrets.SSH_PASSWORD }}
+        run: |
+          HOST=${{ secrets.SSH_HOST }}
+          USER=${{ secrets.SSH_USER }}
+          PASS=$(echo "$SSHPASS" | tr -d '\n')
+          export SSHPASS="$PASS"
+          sshpass -e ssh -o StrictHostKeyChecking=no -p 22 "$USER@$HOST" << 'EOF'
             cd /www/wwwroot/lulidong.com
             rm -rf ./*
             tar -xzf site.tar.gz
             rm site.tar.gz
+          EOF
 
       # 🌐 Step 2: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
