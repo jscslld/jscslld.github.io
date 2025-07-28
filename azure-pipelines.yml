@@ -7,30 +7,34 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  NODE_VERSION: '22.x'
+  NODE_VERSION: '22'
   DEPLOY_PATH: '/www/wwwroot/lulidong.com'
 
 stages:
   - stage: BuildAndDeploy
     displayName: Build and Deploy Static Site
     jobs:
-      - job: build
-        displayName: Build Job
-        steps:
-          - task: NodeTool@0
-            inputs:
-              versionSpec: '$(NODE_VERSION)'
-            displayName: 'Install Node.js'
+      - deployment: DeployStaticSite
+        displayName: Deploy to Self-Hosted Server
+        environment: node
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: NodeTool@0
+                  inputs:
+                    versionSpec: '$(NODE_VERSION)'
+                  displayName: 'Install Node.js'
 
-          - script: |
-              npm install
-            displayName: 'Install Dependencies'
+                - script: |
+                    npm install
+                  displayName: 'Install Dependencies'
 
-          - script: |
-              npm run build
-            displayName: 'Build Project'
+                - script: |
+                    npm run build
+                  displayName: 'Build Project'
 
-          - script: |
-              sudo rm -rf $(DEPLOY_PATH)/*
-              sudo cp -r out/* $(DEPLOY_PATH)/
-            displayName: 'Copy Build Output to Deploy Path'
+                - script: |
+                    sudo rm -rf $(DEPLOY_PATH)/*
+                    sudo cp -r out/* $(DEPLOY_PATH)/
+                  displayName: 'Deploy to $(DEPLOY_PATH)'
