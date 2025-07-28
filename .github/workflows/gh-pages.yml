@@ -74,6 +74,8 @@ jobs:
           port: 22
           source: "site.tar.gz"
           target: "/www/wwwroot/lulidong.com"
+          tar_disable: true 
+          strip_components: 0
 
       - name: SSH to extract files
         uses: appleboy/ssh-action@v1
