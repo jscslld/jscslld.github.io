@@ -64,18 +64,19 @@ jobs:
           name: site
           path: .
 
-      - name: Prepare SSH key
+      - name: Prepare SSH key without blank lines
+        id: prepare_ssh
         run: |
-          mkdir -p /home/runner/.ssh
-          echo "${{ secrets.SSH_KEY }}" | sed '/^\s*$/d' > /home/runner/.ssh/id_rsa
-          chmod 600 /home/runner/.ssh/id_rsa
+          echo "ssh_key_clean<<EOF" >> $GITHUB_ENV
+          echo "${{ secrets.SSH_KEY }}" | sed '/^\s*$/d' >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Upload to remote server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key_path: /home/runner/.ssh/id_rsa
+          key: ${{ env.ssh_key_clean }}
           port: 22
           source: "site.tar.gz"
           target: "/www/wwwroot/lulidong.com"
@@ -85,7 +86,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key_path: /home/runner/.ssh/id_rsa
+          key: ${{ env.ssh_key_clean }}
           port: 22
           script: |
             cd /www/wwwroot/lulidong.com
