@@ -67,7 +67,7 @@ jobs:
       # 🧑‍💻 Step 1: Deploy to remote server
       - name: Upload & Extract on Server
         run: |
-          sshpass -p "${{ secrets.SSH_PASSWORD }}" scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -P 22 site.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/www/wwwroot/lulidong.com
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" scp -v -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -P 22 site.tar.gz ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/www/wwwroot/lulidong.com
 
           sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 22 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             cd /www/wwwroot/lulidong.com
