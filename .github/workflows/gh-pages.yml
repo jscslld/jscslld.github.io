@@ -65,22 +65,28 @@ jobs:
           path: .
 
       # 🧑‍💻 Step 1: Deploy to remote server
+      - name: Prepare SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" | sed '/^\s*$/d' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
       - name: Upload to remote server
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
+          key_path: ~/.ssh/id_rsa
           port: 22
           source: "site.tar.gz"
           target: "/www/wwwroot/lulidong.com"
 
       - name: SSH to extract files
-        uses: appleboy/ssh-action@v1.0.3
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
+          key_path: ~/.ssh/id_rsa
           port: 22
           script: |
             cd /www/wwwroot/lulidong.com
