@@ -55,8 +55,12 @@ Prism.languages.bib = {
 };
 
 Prism.languages.bibtex = Prism.languages.bib;
+interface CodeBlockProps {
+  code: string;
+  language: string;
+}
 
-export const CodeBlock = ({ code, language }) => {
+export const CodeBlock: React.FC<CodeBlockProps> = ({ code, language }) => {
   const { theme } = useTheme();
   const [copied, setCopied] = useState(false);
 
