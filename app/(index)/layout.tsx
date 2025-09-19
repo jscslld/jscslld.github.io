@@ -4,7 +4,7 @@ import { Metadata, Viewport } from "next";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
 
-import { Providers } from "./providers";
+import { Providers } from "../providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -28,7 +28,7 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
+export default function HomeLayout({
   children,
 }: {
   children: React.ReactNode;

@@ -27,12 +27,16 @@
     "clsx": "2.1.1",
     "framer-motion": "11.18.2",
     "intl-messageformat": "10.7.16",
+    "mitt": "^3.0.1",
     "next": "15.3.1",
     "next-themes": "0.4.6",
+    "prism-react-renderer": "^2.4.1",
+    "prismjs-bibtex": "^2.1.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-fast-marquee": "^1.6.5",
-    "react-photo-view": "^1.2.7"
+    "react-photo-view": "^1.2.7",
+    "react-syntax-highlighter": "^15.6.6"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "15.3.4",
