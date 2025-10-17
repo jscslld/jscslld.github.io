@@ -49,6 +49,13 @@ export const Photo = () => {
                                 src="/assets/photos/4.jpg"
                             />
             </PhotoView>
+            <PhotoView src="/assets/photos/5.jpg">
+                 <Image
+                                className="w-60 h-40 mr-3"
+                                shadow="none"
+                                src="/assets/photos/5.jpg"
+                            />
+            </PhotoView>
             </Marquee>
             </PhotoProvider>
            
