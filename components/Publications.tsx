@@ -104,6 +104,36 @@ export const Publications = () => {
                     </div>
                 </CardBody>
             </Card>
+            <Card className="max-w m-4" shadow="sm">
+                <div className="relative inline-block">
+                    <div className="absolute top-1 right-1 z-100 px-3 py-1 text-sm bg-blue-600 text-white rounded-md">
+                        IJCV
+                    </div>
+                <CardHeader className="justify-between">
+                    <div className="flex gap-5">
+                        <div className="flex flex-col gap-1 items-start justify-center">
+                            <a href="https://arxiv.org/abs/2506.06253" className="text-base font-semibold leading-none text-default-600 hover:underline">
+                                <h4>
+                                    Bridging Perspectives: A Survey on Cross-view Collaborative Intelligence with Egocentric-Exocentric Vision
+                                </h4>
+                            </a>
+                            <h5 className="text-base tracking-tight text-default-400 mt-2">
+                                <span>Yuping He</span>,
+                                <span>Yifei Huang</span>,
+                                <span>Guo Chen</span>,
+                                <span className="font-bold underline decoration-2 underline-offset-2 text-gray-600">
+                                    Lidong Lu
+                                </span>,
+                                <span>Baoqi Pei</span>,
+                                <span>Jilan Xu</span>,
+                                <span>Tong Lu</span>,
+                                <span>Yoichi Sato</span>
+                                </h5>
+                        </div>
+                    </div>
+                </CardHeader>
+                </div>
+            </Card>
         </div>
 
     );
