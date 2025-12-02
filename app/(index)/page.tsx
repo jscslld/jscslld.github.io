@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+
 import { MobileSidebar, SideBar } from "@/components/Sidebar";
 import { AboutMe } from "@/components/Aboutme";
 import { Publications } from "@/components/Publications";
@@ -7,6 +11,21 @@ import { Educations } from "@/components/Educations";
 import { Photo } from "@/components/Photo";
 
 export default function Home() {
+
+  useEffect(() => {
+    // 非 dev 环境才触发
+    if (process.env.NODE_ENV !== "development") {
+      const hostname = window.location.hostname;
+
+      if (
+        hostname !== "www.lulidong.com" &&
+        hostname !== "lulidong.com"
+      ) {
+        window.location.href = "https://www.lulidong.com";
+      }
+    }
+  }, []);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
       <div
@@ -15,9 +34,7 @@ export default function Home() {
       >
         <SideBar />
       </div>
-      <div
-        className="block md:hidden"
-      >
+      <div className="block md:hidden">
         <MobileSidebar />
       </div>
 
