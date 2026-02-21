@@ -218,7 +218,7 @@ export function NewsTimelineItem({ item }: { item: NewsItem }) {
   const dateText = item.date.length >= 7 ? formatMonth(item.date.slice(0, 7)) : item.date;
 
   const Title = (
-    <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+    <span className="text-zinc-900 dark:text-zinc-100">
       {item.title}
     </span>
   );

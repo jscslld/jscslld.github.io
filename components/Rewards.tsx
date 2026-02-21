@@ -12,6 +12,7 @@ export const Rewards = () => {
             <Divider className="my-2 bg-default-100" />
             <ul className="list-disc list-inside space-y-3 text-default-700 text-base/6">
                 {[
+                    ['2025', 'Outstanding Graduate Student of Nanjing University (2025).'],
                     ['2024', '17th China College Student Computer Design Competition, Open-source Platform for Intelligent Interpretation of Remote Sensing Image, 2nd Prize.'],
                     ['2023', '12th “China Software Cup” College Student Software Design Competition, Intelligent Resume Parsing System Track, 1st Prize.'],
                     ['2023', 'Eastern Regional Competition of the 14th China College Students Service Outsourcing Innovation and Entrepreneurship Competition, Medical Literature Intelligent Recognition and Retrieval System Track, 3rd Prize.'],
