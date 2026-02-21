@@ -395,7 +395,7 @@ export function News() {
             >
                 Audio-Visual Affordance Grounding
             </a>
-            , a novel task for segmenting object interaction regions from action sounds, and propose <strong>AVAGFormer</strong>, a new state-of-the-art baseline.
+            , a novel task for segmenting object interaction regions from action sounds.
         </>
     ),
     },
@@ -407,7 +407,6 @@ export function News() {
     tone: "success",
     title: (
         <>
-        We present{" "}
         <a
             href="https://arxiv.org/abs/2504.15271"
             target="_blank"
@@ -415,7 +414,7 @@ export function News() {
             className="font-medium text-blue-600 hover:underline dark:text-blue-400"
         >
             Eagle 2.5
-        </a>, a family of frontier vision-language models (VLMs) designed for long-context multimodal learning.
+        </a>{" "}is accepted by NIPS 2025. It is a family of frontier VLMs designed for long-context multimodal learning.
         </>
     ),
     },
