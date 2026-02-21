@@ -9,6 +9,7 @@ import { Projects } from "@/components/Projects";
 import { Rewards } from "@/components/Rewards";
 import { Educations } from "@/components/Educations";
 import { Photo } from "@/components/Photo";
+import { News } from "@/components/News";
 
 export default function Home() {
 
@@ -40,6 +41,7 @@ export default function Home() {
 
       <div className="md:col-span-4">
         <AboutMe />
+        <News />
         <Publications />
         <Projects />
         <Rewards />
