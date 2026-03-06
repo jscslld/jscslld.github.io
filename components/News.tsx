@@ -339,6 +339,27 @@ export function NewsCompactList({
 export function News() {
   const items: NewsItem[] = [
     {
+    id: "n-2026-03-06-1",
+    date: "2026-03-06",
+    icon: "🚀",
+    badge: "Release",
+    tone: "info",
+    title: (
+        <>
+            We introduce{" "}
+            <a
+                href="https://arxiv.org/abs/2603.05484"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-blue-600 hover:underline dark:text-blue-400"
+            >
+                MM-Lifelong
+            </a>
+            , a dataset designed for Multimodal Lifelong Understanding, which is structured across Day, Week, and Month scales.
+        </>
+    ),
+    },
+    {
     id: "n-2026-02-21-1",
     date: "2026-02-21",
     icon: "🎉",
