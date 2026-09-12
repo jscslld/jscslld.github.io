@@ -12,8 +12,9 @@ export const Educations = () => {
             <Divider className="my-2 bg-default-100" />
             <ul className="list-disc list-inside space-y-4 leading-relaxed text-base/6">
                 {[
-                    ['2024.09 - present', 'Nanjing University', 'Persuing Master’s Degree in Computer Technology'],
-                    ['2020.09 - 2024.06', 'Hohai University', 'Bachelor’s Degree in Internet of Things Engineering', '2/122'],
+                    ['2026.09 - present', 'Nanjing University', 'Ph.D. Student in Computer Science and Technology'],
+                    ['2024.09 - 2026.06', 'Nanjing University', 'M.Eng. Student in Computer Technology (Master-to-Ph.D.)', '1/144'],
+                    ['2020.09 - 2024.06', 'Hohai University', 'B.Eng. in Internet of Things Engineering', '2/122'],
                 ].map(([year, school, major, ranking]) => (
                     <li key={year + school} className="flex items-start gap-4">
                         <span className="w-40 flex-shrink-0 text-primary font-semibold">{year}</span>

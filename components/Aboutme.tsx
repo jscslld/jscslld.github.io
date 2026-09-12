@@ -7,7 +7,7 @@ export const AboutMe = () => {
     return (
         <div className="mb-3">
             <p><span id="about-me"></span></p>
-            <p className="text-base/8">I’m pursuing a Master degree in Computer Technology at {" "}
+            <p className="text-base/8">I’m currently pursuing a Ph.D. degree in Computer Science and Technology {" "}
                 <Link
                     isExternal
                     showAnchorIcon
@@ -26,7 +26,7 @@ export const AboutMe = () => {
                 >
                     Tong Lu
                 </Link>.</p>
-            <p className="text-base/8">My research interests inlcude Computer Vision, especially Multimodal Large Language Model.</p>
+            <p className="text-base/8">My research interests include multimodal audio-visual fine-grained understanding.</p>
         </div>
 
     );
