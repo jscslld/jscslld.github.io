@@ -8,7 +8,7 @@ export const SideBar = () => {
                 <div>
                     <Avatar
                         className="w-40 h-40 text-large "
-                        src="/assets/avatar_new.jpg"
+                        src="/assets/avatar_new2.jpg"
                     />
                     <p className="font-semibold text-xl/10 mt-2">Lidong Lu</p>
                     <p className="text-base/5">Nanjing University</p>
